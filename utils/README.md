@@ -14,6 +14,6 @@ In **Google Colab**, the fastest way to install packages is through the Ubuntu b
 
 # Notes about Binder
 
-To configure packages for **Binder**, update `install.R`. If you need to install Ubuntu libraries, edit `apt.txt`. Finally, to change the R runtime edit `runtime.txt`. It is possible to install Python packages also, just add a `requirements.txt` file.
+To configure packages for **Binder**, update `install.R`. If you need to install Ubuntu libraries, edit `apt.txt`. Finally, to change the R runtime edit `runtime.txt`. It is also possible to install Python packages, just add a `requirements.txt` file.
 
 See more here: https://mybinder.readthedocs.io/en/latest/using/config_files.html
