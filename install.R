@@ -1,6 +1,7 @@
 # System commands
 message("Installing bspm interface")
 install.packages("bspm")
+options(bspm.sudo = TRUE)
 bspm::enable()
 
 # Install packages
