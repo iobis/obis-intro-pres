@@ -1,9 +1,3 @@
-# System commands
-message("Installing bspm interface")
-install.packages("bspm")
-options(bspm.sudo = TRUE)
-bspm::enable()
-
 # Install packages
 message("Installing packages")
 install.packages(c("terra", "sf", "tidyverse", "devtools", "robis", "arrow", "sfarrow", "stars", "patchwork"))
