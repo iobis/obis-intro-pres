@@ -33,7 +33,7 @@ Notebook: [biospace_obis_da_r.ipynb](notebooks/R/biospace_obis_da_r.ipynb)
 
 Language: **R**
 
-Used packages: **library(robis, library(dplyr, library(obistools**
+Used packages: **robis, dplyr, obistools**
 
 #### Part 2: OBIS full export and gridded product
 
@@ -48,7 +48,7 @@ Notebook: [biospace_products_r.ipynb](notebooks/R/biospace_products_r.ipynb)
 
 Language: **R**
 
-Used packages: ****
+Used packages:  
 
 -------
 <img src='https://obis.org/images/logo.png' width=150></img>

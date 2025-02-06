@@ -33,7 +33,11 @@ gen_lesson <- function(notebooks,
             notebooks[i], ")"), "<br>")
         content <- c(content, "", note_contents[[i]]$h3, "")
         content <- c(content, "", paste("Language:", paste0("**", note_contents[[i]]$runtime, "**")))
-        content <- c(content, "", paste("Used packages:", paste0("**", paste(note_contents[[i]]$pkg, collapse = ", "), "**")), "")
+        content <- c(content, "", paste("Used packages:", ifelse(
+            length(note_contents[[i]]$pkg) > 0,
+            paste0("**", paste(note_contents[[i]]$pkg, collapse = ", "), "**"),
+            " "
+        )), "")
     }
 
     content <- c(content, "-------", "<img src='https://obis.org/images/logo.png' width=150></img>")
@@ -73,9 +77,9 @@ gen_lesson <- function(notebooks,
     note_cells <- unlist(note_cells)
 
     packages <- note_cells[grepl("library|require|import", note_cells)]
-    packages <- gsub(".*.library\\(", "", gsub(").*", "", packages))
-    packages <- gsub(".*.require\\(", "", gsub(").*", "", packages))
-    packages <- gsub(".*.import ", "", gsub(" as .*", "", packages))
+    packages <- gsub(".*library\\(", "", gsub(").*", "", packages))
+    packages <- gsub(".*require\\(", "", gsub(").*", "", packages))
+    packages <- gsub(".*import ", "", gsub(" as .*| from .*", "", packages))
 
     runtime <- note_content$metadata$kernelspec$language
 
@@ -111,3 +115,21 @@ gen_lesson <- function(notebooks,
 # The demonstrations will use JupyterHub, and participants will have the opportunity to run analyses on their own computers.
 #     "
 # )
+gen_lesson(
+    notebooks = c("notebooks/R/biospace_obis_da_r.ipynb", "notebooks/R/biospace_products_r.ipynb"),
+    title = "OBIS introduction",
+    event = "BioSpace25",
+    date = "2025-02-11",
+    organizers = "Silas C. Principe, Pieter Provoost, Elizabeth Lawrence",
+    contact = "helpdesk@obis.org",
+    summary = "
+The Ocean Biodiversity Information System (OBIS) is the world’s largest open-access repository for marine biodiversity data, containing over 136 million occurrence records from more than 5,000 datasets.  
+OBIS information supports research across a wide range of topics, including biogeography, climate change impacts, invasive species, and taxonomy. In this hands-on demonstration, we will introduce OBIS and the types of data it provides. Through recent research and ongoing projects, we will showcase the diverse applications of OBIS data. Practical examples will illustrate the multiple pathways for accessing OBIS data and demonstrate how it can be processed and integrated with other Earth observation datasets to address critical research questions.  
+At the end of the demonstration, participants are expected to gain a clear understanding of
+(1) the types of information available through OBIS;
+(2) how to access the data using various methods, including APIs, packages, the mapper, and exports;
+(3) how to integrate OBIS data with other datasets;
+(4) how to find support and collaborate with OBIS.
+The demonstrations will use JupyterHub, and participants will have the opportunity to run analyses on their own computers.
+    "
+)
