@@ -76,10 +76,21 @@ gen_lesson <- function(notebooks,
     })
     note_cells <- unlist(note_cells)
 
-    packages <- note_cells[grepl("library|require|import", note_cells)]
+    packages <- note_cells[grepl("library|require|import|::", note_cells)]
     packages <- gsub(".*library\\(", "", gsub(").*", "", packages))
     packages <- gsub(".*require\\(", "", gsub(").*", "", packages))
     packages <- gsub(".*import ", "", gsub(" as .*| from .*", "", packages))
+    if (any(grepl("::", packages))) {
+        matches <- gregexpr("(\\w+)::", packages, perl = TRUE)
+        matched_strings <- unlist(regmatches(packages, matches))
+        matched_strings <- sub("::$", "", matched_strings)
+        packages <- packages[!grepl("::", packages)]
+        packages <- c(packages, matched_strings)
+    }
+    # Get only unique
+    packages <- unique(packages)
+    # Remove those from installation
+    packages <- packages[!packages %in% c("bspm", "devtools")]
 
     runtime <- note_content$metadata$kernelspec$language
 

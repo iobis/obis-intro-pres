@@ -29,11 +29,14 @@ Notebook: [biospace_obis_da_r.ipynb](notebooks/R/biospace_obis_da_r.ipynb)
 <br>
 
 1. Downloading occurrence records
+2. Get species lists 
+3. Extended measurements
+4. Events and time series
 
 
 Language: **R**
 
-Used packages: **robis, dplyr, obistools**
+Used packages: **robis, dplyr, obistools, ggplot2, sf, terra, rnaturalearth, mgcv, lubridate, gifski, utils**
 
 #### Part 2: OBIS full export and gridded product
 
@@ -48,7 +51,7 @@ Notebook: [biospace_products_r.ipynb](notebooks/R/biospace_products_r.ipynb)
 
 Language: **R**
 
-Used packages:  
+Used packages: **arrow, dplyr, ggplot2, DBI, duckdb, glue, terra, fs, robis, rnaturalearth, sf, h3jsr**
 
 -------
 <img src='https://obis.org/images/logo.png' width=150></img>
