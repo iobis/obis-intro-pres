@@ -30,7 +30,7 @@ gen_lesson <- function(notebooks,
             add_part, paste(paste0("Part ", i, ":"), note_contents[[i]]$h1[1]), note_contents[[i]]$h1[1]
         )), "")
         content <- c(content, paste0("Notebook: [", basename(notebooks[i]), "](",
-            notebooks[i], ")"), "<br>")
+            paste0("../", notebooks[i]), ")"), "<br>")
         content <- c(content, "", note_contents[[i]]$h3, "")
         content <- c(content, "", paste("Language:", paste0("**", note_contents[[i]]$runtime, "**")))
         content <- c(content, "", paste("Used packages:", ifelse(

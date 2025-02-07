@@ -25,7 +25,7 @@ The demonstrations will use JupyterHub, and participants will have the opportuni
 #### Part 1: Accessing OBIS data
 
 
-Notebook: [biospace_obis_da_r.ipynb](notebooks/R/biospace_obis_da_r.ipynb)
+Notebook: [biospace_obis_da_r.ipynb](../notebooks/R/biospace_obis_da_r.ipynb)
 <br>
 
 1. Downloading occurrence records
@@ -41,7 +41,7 @@ Used packages: **robis, dplyr, obistools, ggplot2, sf, terra, rnaturalearth, mgc
 #### Part 2: OBIS full export and gridded product
 
 
-Notebook: [biospace_products_r.ipynb](notebooks/R/biospace_products_r.ipynb)
+Notebook: [biospace_products_r.ipynb](../notebooks/R/biospace_products_r.ipynb)
 <br>
 
 1. A brief introduction to Parquet
